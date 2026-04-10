@@ -7,4 +7,4 @@ El proyecto consiste en el desarrollo de un juego con temática de los ODS (Obje
 - Sergio Seller 
 - Javier Blanco
 # CERTIFICACIÓN
-![imagen](![alt text](image.png))
+(![alt text](image.png))
