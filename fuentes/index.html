@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang=es>
+	<head>
+		<meta charset=utf-9 />
+		<meta name=viewport content='width=device-width, initial-scale=1' />
+		<meta name=author content='Sergio Seller' />
+		<title>Formulario de basuras</title>
+		
+		<!-- <link rel=stylesheet href=css/reset.css />
+		<link rel=stylesheet href=css/estilo.css />
+		
+		<script defer src=js/script.js></script>
+		<script defer src=js/armagedon.js></script> -->
+	</head>
+	<body>
+		<h1>Formulario de basuras</h1>
+		<div id=vista >
+			<div>
+				<label for=nombre >Nombre: </label>
+				<input id=nombre required />
+			</div>
+			<div>
+				<label for=descripcion >Descripción: </label>
+				<textarea id=descripcion name=descripcion rows=2 cols=30></textarea>
+			</div>
+			
+			<div>
+				<label for=cantidad >Cantidad: </label>
+				<input id=cantidad type=number required />
+			</div>
+			<fieldset>
+				<legend>Características: </legend>
+				<div>
+				<label>
+					<input type=checkbox name=reciclable> Reciclable
+				</label>
+				</div>
+			
+				<div>
+				<label>
+					<input type=checkbox name=toxico> Tóxico
+				</label>
+				</div>
+			</fieldset>
+			<div>
+				<fieldset>
+					<legend>Unidad: </legend>
+					<input type=radio id=kilogramos name=unidad>
+					<label for=kilogramos> Kilogramos </label>
+					<input type=radio id=litros name=unidad>
+					<label for=litros> Litros </label>
+					<input type=radio id=unidades name=unidad>
+					<label for=unidades> Unidades </label>
+				</fieldset>
+			</div>
+			
+			<div>
+				<label for=fecha>Fecha de registro: </label>
+				<input id=fecha type=date />
+			</div>
+			
+			<div>
+				<label for=tipo>Contenedor: </label>
+				<select id=tipo>
+					<option>Resto</option>
+					<option>Orgánico</option>
+					<option>Cristal</option>
+					<option>Plástico</option>
+					<option>Papel</option>
+					<option>Metal</option>
+					
+				</select>
+			</div>
+			
+			<div>
+				<button id=botonInsertar>Insertar</button>
+			</div>
+		</div>
+	</body>
+</html>
