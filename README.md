@@ -16,6 +16,6 @@ REQUERIMIENTOS TÉCNICOS
 - Sergio Seller 
 - Javier Blanco
 # SIUACIÓN GRAFICA DELPROYECTO 
-(![alt text](documentacion/imagenes/Situación_Proyecto_1.png))
+![alt text](documentacion/imagenes/Situación_Proyecto_1.png)
 # CERTIFICACIÓN
-(![alt text](documentacion/imagenes/imagen1.png))
+![alt text](documentacion/imagenes/imagen1.png)
