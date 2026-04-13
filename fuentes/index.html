@@ -1,80 +1,84 @@
 <!DOCTYPE html>
 <html lang=es>
 	<head>
-		<meta charset=utf-9 />
+		<meta charset="UTF-8" />
 		<meta name=viewport content='width=device-width, initial-scale=1' />
 		<meta name=author content='Sergio Seller' />
 		<title>Formulario de basuras</title>
 		
-		<!-- <link rel=stylesheet href=css/reset.css />
+		<!-- CSS de Reset -->
+		<!-- <link rel=stylesheet href=css/reset.css /> -->
 		<link rel=stylesheet href=css/estilo.css />
 		
-		<script defer src=js/script.js></script>
-		<script defer src=js/armagedon.js></script> -->
 	</head>
 	<body>
 		<h1>Formulario de basuras</h1>
-		<div id=vista >
+		<form>
 			<div>
 				<label for=nombre >Nombre: </label>
-				<input id=nombre required />
+				<input type=text id=nombre name=nombre required placeholder="Introduce el nombre"/>
 			</div>
 			<div>
 				<label for=descripcion >Descripción: </label>
-				<textarea id=descripcion name=descripcion rows=2 cols=30></textarea>
+				<textarea id=descripcion name=descripcion rows=2 cols=30 required></textarea>
 			</div>
 			
 			<div>
 				<label for=cantidad >Cantidad: </label>
-				<input id=cantidad type=number required />
+				<input type=number id=cantidad type=number required />
 			</div>
 			<fieldset>
 				<legend>Características: </legend>
 				<div>
 				<label>
-					<input type=checkbox name=reciclable> Reciclable
+					<input type=checkbox name=reciclable value=si> Reciclable
 				</label>
 				</div>
 			
 				<div>
 				<label>
-					<input type=checkbox name=toxico> Tóxico
+					<input type=checkbox name=toxico value=si> Tóxico
 				</label>
 				</div>
 			</fieldset>
 			<div>
 				<fieldset>
 					<legend>Unidad: </legend>
-					<input type=radio id=kilogramos name=unidad>
+					<input type=radio id=kilogramos name=unidad value=kg>
 					<label for=kilogramos> Kilogramos </label>
-					<input type=radio id=litros name=unidad>
+					
+					<input type=radio id=litros name=unidad value=l>
 					<label for=litros> Litros </label>
-					<input type=radio id=unidades name=unidad>
+					
+					<input type=radio id=unidades name=unidad value=uds>
 					<label for=unidades> Unidades </label>
 				</fieldset>
 			</div>
 			
 			<div>
 				<label for=fecha>Fecha de registro: </label>
-				<input id=fecha type=date />
+				<input type=date id=fecha type=date required />
 			</div>
 			
 			<div>
 				<label for=tipo>Contenedor: </label>
-				<select id=tipo>
-					<option>Resto</option>
-					<option>Orgánico</option>
-					<option>Cristal</option>
-					<option>Plástico</option>
-					<option>Papel</option>
-					<option>Metal</option>
-					
+				<select id=tipo name=tipo required>
+					<option value="">--Selecciona--</option>
+					<option value=resto>Resto</option>
+					<option value=organico>Orgánico</option>
+					<option value=cristal>Cristal</option>
+					<option value=plastico>Plástico</option>
+					<option value=papel>Papel</option>
+					<option value=metal>Metal</option>
 				</select>
 			</div>
 			
 			<div>
-				<button id=botonInsertar>Insertar</button>
+				<button type=sumbit>Insertar</button>
 			</div>
-		</div>
+		</form>
+		
+		<script src=js/script.js></script>
+		
 	</body>
 </html>
