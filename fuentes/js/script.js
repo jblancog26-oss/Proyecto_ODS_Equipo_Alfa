@@ -1,10 +1,9 @@
-// script.js - Manejo del formulario de basuras
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
 
     form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevenir el envío por defecto
+        event.preventDefault(); 
 
         // Recopilar los datos
         const nombre = document.getElementById('nombre').value;
