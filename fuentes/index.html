@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang=es>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name=viewport content='width=device-width, initial-scale=1' />
+		<meta name=author content='Sergio Seller' />
+		<title>Formulario de basuras</title>
+		
+		<!-- CSS de Reset -->
+		<!-- <link rel=stylesheet href=css/reset.css /> -->
+		<link rel=stylesheet href=css/estilo.css />
+		
+	</head>
+	<body>
+		<h1>Formulario de basuras</h1>
+		<form id="formulario">
+			<div>
+				<label for=nombre >Nombre: </label>
+				<input type=text id=nombre name=nombre required placeholder="Introduce el nombre"/>
+			</div>
+			<div>
+				<label for=descripcion >Descripción: </label>
+				<textarea id=descripcion name=descripcion rows=2 cols=30 required></textarea>
+			</div>
+			
+			<div>
+				<label for=cantidad >Cantidad: </label>
+				<input type=number id=cantidad type=number required />
+			</div>
+			<fieldset>
+				<legend>Características: </legend>
+				<div>
+				<label>
+					<input type=checkbox name=reciclable value=si> Reciclable
+				</label>
+				</div>
+			
+				<div>
+				<label>
+					<input type=checkbox name=toxico value=si> Tóxico
+				</label>
+				</div>
+			</fieldset>
+			<div>
+				<fieldset>
+					<legend>Unidad: </legend>
+					<input type=radio id=kilogramos name=unidad value=kg>
+					<label for=kilogramos> Kilogramos </label>
+					
+					<input type=radio id=litros name=unidad value=l>
+					<label for=litros> Litros </label>
+					
+					<input type=radio id=unidades name=unidad value=uds>
+					<label for=unidades> Unidades </label>
+				</fieldset>
+			</div>
+			
+			<div>
+				<label for=fecha>Fecha de registro: </label>
+				<input type=date id=fecha type=date required />
+			</div>
+			
+			<div>
+				<label for=tipo>Contenedor: </label>
+				<select id=tipo name=tipo required>
+					<option value="">--Selecciona--</option>
+					<option value=resto>Resto</option>
+					<option value=organico>Orgánico</option>
+					<option value=cristal>Cristal</option>
+					<option value=plastico>Plástico</option>
+					<option value=papel>Papel</option>
+					<option value=metal>Metal</option>
+				</select>
+			</div>
+			
+			<div>
+				<button type=sumbit>Insertar</button>
+			</div>
+		</form>
+		
+		<script defer src=js/script.js></script>
+        
+		
+	</body>
+</html>
