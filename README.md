@@ -26,6 +26,6 @@ REQUERIMIENTOS TÉCNICOS
 ## Formulario
 ![alt text](documentacion/imagenes/Situación_Proyecto_2_Formulario.png)
 ## REGUISTRO
-![alt text](documentacion/imagenes/Situación_Proyecto_1_reguistro,png)
+![alt text](documentacion/imagenes/Situación_Proyecto_1_reguistro.png)
 # CERTIFICACIÓN
 ![alt text](documentacion/imagenes/imagen1.png)
