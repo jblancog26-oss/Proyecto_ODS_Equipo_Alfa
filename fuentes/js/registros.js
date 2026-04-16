@@ -51,19 +51,13 @@ registros.forEach(function(registro, index) {
             ERROR.textContent = 'No hay elementos seleccionados';
             return;
         }
-
-        // 🔥 eliminar del array usando índices
         const indicesABorrar = Array.from(seleccionados).map(li => Number(li.dataset.index));
-
         registros = registros.filter((_, index) => !indicesABorrar.includes(index));
 
-        // 🔥 guardar cambios en sessionStorage
         sessionStorage.setItem("registros", JSON.stringify(registros));
 
         STATUS.textContent = `Borrados ${indicesABorrar.length} elemento(s)`;
         ERROR.textContent = '';
-
-        // 🔄 volver a pintar sin recargar
         mostrarRegistros();
     };
 
