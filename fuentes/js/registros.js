@@ -61,7 +61,6 @@ registros.forEach(function(registro, index) {
         mostrarRegistros();
     };
 
-    // 🔹 Evento botón borrar
     document.getElementById('borrar').addEventListener('click', borrarSeleccionados);
 
 });
