@@ -9,9 +9,24 @@
 		<!-- CSS de Reset -->
 		<!-- <link rel=stylesheet href=css/reset.css /> -->
 		<link rel=stylesheet href=css/estilo.css />
+		<script defer src="js/script.js"></script>
+		<script defer src="js/registros.js"></script>
 		
 	</head>
 	<body>
+		<nav>
+			<a href="#" >Menú</a>
+			<a href="#" >Formulario</a>
+			<a href="#" >Registros</a>
+		</nav>
+		<div class="vista" id="Menu">
+		  <h1>Menú Principal - Proyecto ODS</h1>
+			<div>
+      	  <h2>Bienvenido al Proyecto ODS</h2>
+       	 <p>Selecciona una opción del menú para navegar.</p>
+  		  </div>
+		</div>
+		<div class="vista" id="formulario">
 		<h1>Formulario de basuras</h1>
 		<form id="formulario">
 			<div>
@@ -77,9 +92,14 @@
 				<button type=submit>Insertar</button>
 			</div>
 		</form>
-		<a href="registros.html">registros</a>
-		<script defer src=js/script.js></script>
-        <a href="menu.html">Menú</a>
-		
+	</div>
+	<div class="vista" id="listas">
+		<h1>Lista de registros</h1>
+			<ul id="lista"></ul>
+			<div id="error"></div>
+			<div id="status"></div>
+			<button id="borrar">Borrar </button>
+	</div>	
+
 	</body>
 </html>

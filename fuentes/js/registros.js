@@ -5,12 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const STATUS = document.getElementById('status');
 
 
-    function obtenerRegistros() {
-        const registros = sessionStorage.getItem('registros');
-        return registros ? JSON.parse(registros) : [];
-    }
-
-    let registros = obtenerRegistros();
+    let registros = [];
 
     const añadirEvento = elemento => {
         elemento.addEventListener("click", () => {
@@ -27,17 +22,17 @@ document.addEventListener('DOMContentLoaded', function() {
             lista.appendChild(li);
             return;
         }
-registros.forEach(function(registro, index) { 
-    const elemento = document.createElement('li'); 
-    elemento.dataset.index = index;
-    elemento.innerHTML = `<strong>${registro.nombre}</strong> (${registro.tipo}) - ${registro.descripcion}
-     <br>Cantidad: ${registro.cantidad} ${registro.unidad || ''} |
-     Reciclable: ${registro.reciclable ? 'sí' : 'no'} |
-     Tóxico: ${registro.toxico ? 'sí' : 'no'} | 
-     Fecha: ${registro.fecha}`; 
-    lista.appendChild(elemento); 
-    añadirEvento(elemento);
-});
+    registros.forEach(function(registro, index) { 
+        const elemento = document.createElement('li'); 
+        elemento.dataset.index = index;
+        elemento.innerHTML = `<strong>${registro.nombre}</strong> (${registro.tipo}) - ${registro.descripcion}
+        <br>Cantidad: ${registro.cantidad} ${registro.unidad || ''} |
+        Reciclable: ${registro.reciclable ? 'sí' : 'no'} |
+        Tóxico: ${registro.toxico ? 'sí' : 'no'} | 
+        Fecha: ${registro.fecha}`; 
+        lista.appendChild(elemento); 
+        añadirEvento(elemento);
+    });
     }
 
     mostrarRegistros();
