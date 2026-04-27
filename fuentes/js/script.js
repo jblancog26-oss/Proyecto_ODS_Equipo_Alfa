@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Actualizar lista
         mostrarRegistros();
-
+        // Limpiar formulario quitar para orcticar 
         form.reset();
         alert('Registro guardado.');
     });
