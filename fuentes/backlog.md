@@ -15,10 +15,10 @@
 
 | Tarea | Descripción | Trabajador | Estado |
 |-------|-------------|------------|--------|
-| TT7 | Arreglar el CRUD / Arreglar el Backlog | - | ASIGNANDO |
+| TT7 | Arreglar el CRUD / Arreglar el Backlog | Javier | ASIGNANDO |
 | TT8 | Crear un CSS para la Página (No Juego) | - | ASIGNANDO |
 | TT9 | Organizar/Seleccionar Imágenes | - | ASIGNANDO |
-| TT10 | Crear Campo de Juego | - | ASIGNANDO |
+| TT10 | Crear Campo de Juego | JAVIER | ASIGNANDO |
 | TT11 | Crear Colisiones | - | ASIGNANDO |
 | TT12 | Insertar Imágenes en el Juego | - | ASIGNANDO |
 | TT13 | Primeras Interacciones | - | ASIGNANDO |
