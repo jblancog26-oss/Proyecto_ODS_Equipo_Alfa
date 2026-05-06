@@ -4,26 +4,25 @@
 
 | Tarea | Descripción | Trabajador | Estado |
 |-------|-------------|------------|--------|
-| TT1 | Documentación y Estructura | JAVI | COMPLETADO |
-| TT2 | Backlog | FELIPE | COMPLETADO |
-| TT3 | Creación de CRUD | SERGIO | EN PROCESO |
-| TT4 | Acciones/Eventos | JAVIER | EN PROCESO |
-| TT5 | Vistas | FELIPE | EN PROCESO |
-| TT6 | Manual de Usuario | - | ASIGNANDO |
+| TT1 | Documentación y Estructura | JAVI | ✅ |
+| TT2 | Backlog | FELIPE | ✅ |
+| TT3 | Creación de CRUD | SERGIO | ✅ |
+| TT4 | Acciones/Eventos | JAVIER | ✅ |
+| TT5 | Vistas | FELIPE | ✅ |
+| TT6 | Manual de Usuario | - | ⭕ |
 
 ## Juego
 
 | Tarea | Descripción | Trabajador | Estado |
 |-------|-------------|------------|--------|
-| TT7 | Arreglar el CRUD / Arreglar el Backlog | - | ASIGNANDO |
-| TT8 | Crear un CSS para la Página (No Juego) | - | ASIGNANDO |
-| TT9 | Organizar/Seleccionar Imágenes | - | ASIGNANDO |
-| TT10 | Crear Campo de Juego | - | ASIGNANDO |
-| TT11 | Crear Colisiones | - | ASIGNANDO |
-| TT12 | Insertar Imágenes en el Juego | - | ASIGNANDO |
-| TT13 | Primeras Interacciones | - | ASIGNANDO |
-| TT14 | CSS (Juego) | - | ASIGNANDO |
-| TT15 | Jugadores | - | ASIGNANDO |
-| TT16 | Puntuaciones | - | ASIGNANDO |
-| TT17 | Registro de Puntuación | - | ASIGNANDO |
-
+| TT7 | Arreglar el CRUD / Arreglar el Backlog | JAVI | ✅ |
+| TT8 | Crear un CSS para la Página (No Juego) | - | 🔄 |
+| TT9 | Organizar/Seleccionar Imágenes | - | ⭕ |
+| TT10 | Crear Campo de Juego | JAVI | 🔄 |
+| TT11 | Crear Colisiones | - | ⭕ |
+| TT12 | Insertar Imágenes en el Juego | - | ⭕ |
+| TT13 | Primeras Interacciones | - | ⭕ |
+| TT14 | CSS (Juego) | - | ⭕ |
+| TT15 | Jugadores | - | ⭕ |
+| TT16 | Puntuaciones | - | ⭕ |
+| TT17 | Registro de Puntuación | - | ⭕ |

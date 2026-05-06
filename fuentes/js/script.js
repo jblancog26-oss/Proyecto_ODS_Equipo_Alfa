@@ -15,16 +15,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // SISTEMA DE VISTAS
     // -------------------------
     const MENU = document.querySelector('#Menu');
-    const FORMULARIO = document.querySelector('#formulario');
+    const FORMULARIO = document.querySelector('#formulario-section');
     const LISTAS = document.querySelector('#listas');
+    const JUEGOS = document.querySelector('#juego');
 
     const MENU1 = document.getElementsByTagName('a')[0];
     const MENU2 = document.getElementsByTagName('a')[1];
     const MENU3 = document.getElementsByTagName('a')[2];
+    const MENU4 = document.getElementsByTagName('a')[3];
 
-    MENU1.addEventListener('click', mostrarMenu);
-    MENU2.addEventListener('click', mostrarFormulario);
-    MENU3.addEventListener('click', mostrarListas);
+    MENU1.addEventListener('click', function(event) {
+        event.preventDefault();
+        mostrarMenu();
+    });
+    MENU2.addEventListener('click', function(event) {
+        event.preventDefault();
+        mostrarFormulario();
+    });
+    MENU3.addEventListener('click', function(event) {
+        event.preventDefault();
+        mostrarListas();
+    });
+    MENU4.addEventListener('click', function(event) {
+        event.preventDefault();
+        mostrarJuegos();
+    });
     
     function mostrarMenu() {
         ocultarVistas();
@@ -43,6 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
         MENU.classList.remove('activo');
         FORMULARIO.classList.remove('activo');
         LISTAS.classList.remove('activo');
+        JUEGOS.classList.remove('activo');
+    }
+        function mostrarJuegos() {
+        ocultarVistas();
+        JUEGOS.classList.add('activo');
     }
 
     // -------------------------
@@ -92,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const nombre = document.getElementById('nombre').value.trim();
         const descripcion = document.getElementById('descripcion').value.trim();
-        const cantidad = document.getElementById('cantidad').value;
+        const cantidad = Number(document.getElementById('cantidad').value);
         const reciclable = document.querySelector('input[name="reciclable"]').checked;
         const toxico = document.querySelector('input[name="toxico"]').checked;
         const unidadSeleccionada = document.querySelector('input[name="unidad"]:checked');
