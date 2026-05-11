@@ -9,7 +9,12 @@
 		<!-- CSS de Reset -->
 		<!-- <link rel=stylesheet href=css/reset.css /> -->
 		<link rel=stylesheet href=css/estilo.css />
-		<script defer src="js/script.js"></script>		
+		<!-- Scripts en orden: Modelo -> Controladores -> Inicializador -->
+		<script defer src="js/modelos/jugador.js"></script>
+		<script defer src="js/controladores/controladores_resultados.js"></script>
+		<script defer src="js/controladores/controlador_juego.js"></script>
+		<script defer src="js/controladores/juego.js"></script>
+		<script defer src="js/script.js"></script>
 	</head>
 	<body>
 		<!-- Cabecera -->
@@ -111,25 +116,38 @@
 			<button id="borrar">Borrar</button>
 		</section>
 		<section class="vista" id="juego">
-			<h1>Juego</h1>
-				<div class="zona-Juego">
-					<div class="contenedor-azul">
-						<img src="img/contenedor-azul.png" alt="Contenedor Azul" />
-					</div>
-					<div class="contenedor-marron">
-						<img src="img/contenedor-marron.png" alt="Contenedor Marrón" />
-					</div>
-					<div class="contenedor-verde">
-						<img src="img/contenedor-verde.png" alt="Contenedor Verde" />
-					</div>
-					<div class="contenedor-amarillo">
-						<img src="img/contenedor-amarillo.png" alt="Contenedor Amarillo" />
-					</div>
+			<h1>Juego - Recicla el Producto</h1>
+			<div id="arena-juego" class="arena-juego">
+				<div class="producto-movil" id="producto-movil">
+					<img src="img/producto.png" alt="Producto" id="producto" />
+					<p id="nombre-producto">Producto</p>
 				</div>
+				<div class="contenedor-azul" id="azul">					
+					<img src="img/contenedor-azul.png" alt="Contenedor Azul" />
+					<span>Azul</span>
+				</div>
+				<div class="contenedor-marron" id="marron">
+					<img src="img/contenedor-marron.png" alt="Contenedor Marrón" />
+					<span>Marrón</span>
+				</div>
+				<div class="contenedor-verde" id="verde">
+					<img src="img/contenedor-verde.png" alt="Contenedor Verde" />
+					<span>Verde</span>
+				</div>
+				<div class="contenedor-amarillo" id="amarillo">
+					<img src="img/contenedor-amarillo.png" alt="Contenedor Amarillo" />
+					<span>Amarillo</span>
+				</div>
+			</div>
+			<div class="controles-juego">
 				<div class="puntuacion-juego">
 					<h2>Puntuación: <span id="puntuacion">0</span></h2>
 					<button id="reiniciar-juego">Reiniciar Juego</button>
 				</div>
+				<div class="instrucciones-juego">
+					<p id="mensaje-juego">Mueve el producto con WASD o Flechas. ¡Llévalo al contenedor correcto!</p>
+				</div>
+			</div>
 		</section>
 
 	</main>

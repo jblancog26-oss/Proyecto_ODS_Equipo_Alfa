@@ -43,10 +43,10 @@ Para ver el backlog completo con las tareas técnicas, consulta el archivo [fuen
 | Tarea | Descripción | Trabajador | Estado |
 |-------|-------------|------------|--------|
 | TT7 | Arreglar el CRUD / Arreglar el Backlog | JAVI | ✅ |
-| TT8 | Crear un CSS para la Página (No Juego) | - | 🔄 |
-| TT9 | Organizar/Seleccionar Imágenes | - | ⭕ |
-| TT10 | Crear Campo de Juego | JAVI | 🔄 |
-| TT11 | Crear Colisiones | - | ⭕ |
+| TT8 | Crear un CSS para la Página (No Juego) | felipe | ✅ |
+| TT9 | Organizar/Seleccionar Imágenes | FELIPE | 🔄 |
+| TT10 | Crear Campo de Juego | JAVI | ✅ |
+| TT11 | Crear Colisiones | Javi | ✅ |
 | TT12 | Insertar Imágenes en el Juego | - | ⭕ |
 | TT13 | Primeras Interacciones | - | ⭕ |
 | TT14 | CSS (Juego) | - | ⭕ |
@@ -58,16 +58,16 @@ Para ver el backlog completo con las tareas técnicas, consulta el archivo [fuen
 ## Situación Gráfica del Proyecto
 
 ### Menú
-![Menú](documentacion/imagenes/Situación_Proyecto_2_menu.png)
+![Menú](documentacion/imagenes/Situación_Proyecto_3_menu.png)
 
 ### Formulario
-![Formulario](documentacion/imagenes/Situación_Proyecto_3_Formulario.png)
+![Formulario](documentacion/imagenes/Situación_Proyecto_4_Formulario.png)
 
 ### Registro
-![Registro](documentacion/imagenes/Situación_Proyecto_2_reguistro.png)
+![Registro](documentacion/imagenes/Situación_Proyecto_3_reguistro.png)
 
 ### Juego
-![Registro](documentacion/imagenes/Situación_Proyecto_1_juego.png)
+![Registro](documentacion/imagenes/Situación_Proyecto_2_juego.png)
 
 ## Certificación
 ![Certificación](documentacion/imagenes/imagen1.png)
