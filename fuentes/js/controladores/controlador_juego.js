@@ -19,8 +19,6 @@ window.ControladorJuego = {
     // Configuración
     velocidad: 7,
     colision: false,
-
-    // Teclas pulsadas
     teclas: {},
 
     // =========================

@@ -51,7 +51,7 @@ Para ver el backlog completo con las tareas técnicas, consulta el archivo [fuen
 | TT13 | Primeras Interacciones | - | ⭕ |
 | TT14 | CSS (Juego) | - | ⭕ |
 | TT15 | Jugadores | - | ⭕ |
-| TT16 | Puntuaciones | - | ⭕ |
+| TT16 | Puntuaciones | - | ✅ |
 | TT17 | Registro de Puntuación | - | ⭕ |
 
 
