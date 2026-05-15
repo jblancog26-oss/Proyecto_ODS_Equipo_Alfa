@@ -5,10 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // -------------------------
     const form = document.querySelector('form');
     const lista = document.getElementById('lista');
+    const listaPartidas = document.getElementById('lista-partidas');
+    const mejorRacha = document.getElementById('mejor-racha');
     const ERROR = document.getElementById('error');
     const STATUS = document.getElementById('status');
 
-    // Array 
+    // Array
     let registros = [];
 
     // -------------------------
@@ -53,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
         ocultarVistas();
         LISTAS.classList.add('activo');
         mostrarRegistros();
+        mostrarPartidas();
+        mostrarMejorRacha();
     }
     function ocultarVistas() {
         MENU.classList.remove('activo');
@@ -102,6 +106,37 @@ document.addEventListener('DOMContentLoaded', function() {
             lista.appendChild(elemento);
             tachar(elemento);
         });
+    }
+
+    // -------------------------
+    // MOSTRAR PARTIDAS
+    // -------------------------
+    function mostrarPartidas() {
+        if (!listaPartidas) return;
+
+        listaPartidas.innerHTML = "";
+
+        const partidas = window.ControladorResultados ? window.ControladorResultados.partidas : [];
+
+        if (!partidas || partidas.length === 0) {
+            const li = document.createElement('li');
+            li.textContent = 'No se han terminado partidas todavía.';
+            listaPartidas.appendChild(li);
+            return;
+        }
+
+        partidas.forEach((puntos, index) => {
+            const li = document.createElement('li');
+            li.textContent = `Partida ${index + 1}: ${puntos} punto${puntos === 1 ? '' : 's'}`;
+            listaPartidas.appendChild(li);
+        });
+    }
+
+    function mostrarMejorRacha() {
+        if (!mejorRacha) return;
+
+        const record = window.ControladorResultados ? window.ControladorResultados.mejorRacha : 0;
+        mejorRacha.textContent = `Mejor racha: ${record} punto${record === 1 ? '' : 's'}`;
     }
 
     // -------------------------

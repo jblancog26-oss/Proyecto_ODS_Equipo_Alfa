@@ -107,13 +107,17 @@
 		</form>
 		</section>
 
-		<!-- Sección de REGUISTROS -->	
+		<!-- Sección de REGISTROS -->	
 		<section class="vista" id="listas">
 			<h1>Lista de registros</h1>
 			<ul id="lista"></ul>
 			<div id="error"></div>
 			<div id="status"></div>
 			<button id="borrar">Borrar</button>
+
+			<h2>Historial de partidas</h2>
+			<ol id="lista-partidas"></ol>
+			<div id="mejor-racha" class="mejor-racha">Mejor racha: 0 puntos</div>
 		</section>
 		<section class="vista" id="juego">
 			<h1>Juego - Recicla el Producto</h1>
@@ -138,7 +142,8 @@
 			<div class="controles-juego">
 				<div class="puntuacion-juego">
 					<h2>Puntuación: <span id="puntuacion">0</span></h2>
-					<button id="reiniciar-juego">Reiniciar Juego</button>
+					<h3>Máxima: <span id="puntuacion-maxima">0</span></h3>
+					<button id="empezar-partida">Empezar Partida</button>
 				</div>
 				<div class="instrucciones-juego">
 					<p id="mensaje-juego">Mueve el producto con WASD o Flechas. ¡Llévalo al contenedor correcto!</p>
