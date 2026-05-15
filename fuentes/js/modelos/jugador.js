@@ -1,32 +1,32 @@
 window.productosJuego = [
     {
         nombre: "Botella de plástico",
-        imagen: "img/botella-plastico.png",
+        imagen: "../documentacion/imagenes/productos/botella_plastico.png",
         contenedor: "amarillo"
     },
     {
         nombre: "Periodico",
-        imagen: "img/papel.png",
+        imagen: "../documentacion/imagenes/productos/periodico.png",
         contenedor: "azul"
     },
     {
         nombre: "Cáscara de plátano",
-        imagen: "img/banana.png",
+        imagen: "../documentacion/imagenes/productos/cascara_platano.png",
         contenedor: "marron"
     },
     {
         nombre: "Botella de vidrio",
-        imagen: "img/vidrio.png",
+        imagen: "../documentacion/imagenes/productos/botella_cristal.png",
         contenedor: "verde"
     },
     {
         nombre: "Lata de aluminio",
-        imagen: "img/lata.png",
+        imagen: "../documentacion/imagenes/productos/lata.png",
         contenedor: "amarillo"
     },
     {
         nombre: "Cartón",
-        imagen: "img/carton.png",
+        imagen: "../documentacion/imagenes/productos/carton.png",
         contenedor: "azul"
     }
 ];
