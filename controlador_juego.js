@@ -1,0 +1,436 @@
+
+/* RESET BÁSICO */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7f9;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CSS en la cabecera */
+header {
+    background: green ;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px black;
+}
+
+header h1 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    background: grey;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: .3s;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background: grey;
+    transform: translateY(-2px);
+}
+
+/* CSS del main y las vistas */
+main {
+    flex: 1;
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.vista {
+    display: none;
+}
+
+.vista.activo {
+    display: block;
+}
+
+/* CSS en las secciones */
+section {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px black;
+}
+
+section h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: green;
+}
+
+/* CSS del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+input,
+textarea,
+select {
+    padding: 12px;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: .3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: green;
+    outline: none;
+    box-shadow: 0 0 10px rgba(67,160,71,.2);
+    background-color: white;
+}
+
+fieldset {
+    border: 2px solid white;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+legend {
+    font-weight: bold;
+    color: green;
+}
+
+fieldset div {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+}
+
+fieldset input[type="radio"] {
+    margin-left: 10px;
+}
+
+button {
+    background: green;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: .3s;
+}
+
+button:hover {
+    background: green;
+    transform: scale(1.03);
+}
+
+/* Css lista de registros */
+#lista {
+    list-style: none;
+    margin-top: 20px;
+}
+
+#lista li {
+    background: white;;
+    border-left: 5px solid green;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#lista li:hover {
+    background: white;
+    transform: translateX(4px);
+}
+
+/* Tachado */
+.tachado {
+    text-decoration: line-through;
+    opacity: .6;
+    background: white !important;
+    border-left-color: red !important;
+}
+
+/* Mensajes */
+#error {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#status {
+    color: green;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* CSS Juego */
+.arena-juego {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+    border: 4px solid #27ae60;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 30px 0;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.producto-movil {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 80px;
+    height: 80px;
+    background: white;
+    border: 3px solid #3498db;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: move;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+    transition: box-shadow 0.2s;
+}
+
+.producto-movil:active {
+    box-shadow: 0 4px 20px rgba(52, 152, 219, 0.8);
+}
+
+.producto-movil img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.producto-movil p {
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2px;
+    color: #2c3e50;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.arena-juego > div[id] {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: none;
+}
+
+.arena-juego > div[id] img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.arena-juego > div[id] span {
+    font-size: 12px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-top: 5px;
+    text-align: center;
+}
+
+#azul {
+    top: 20px;
+    left: 30px;
+    border: 3px solid #3498db;
+}
+
+#marron {
+    top: 20px;
+    right: 30px;
+    border: 3px solid #8b4513;
+}
+
+#verde {
+    bottom: 20px;
+    left: 30px;
+    border: 3px solid #27ae60;
+}
+
+#amarillo {
+    bottom: 20px;
+    right: 30px;
+    border: 3px solid #f39c12;
+}
+
+.arena-juego > div[id]:hover {
+    transform: scale(1.05);
+}
+
+.arena-juego > div[id].colision {
+    background: #2ecc71;
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.8);
+}
+
+.controles-juego {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.puntuacion-juego {
+    flex: 1;
+}
+
+.puntuacion-juego h2 {
+    margin-bottom: 15px;
+    color: #27ae60;
+}
+
+.puntuacion-juego button {
+    background: #27ae60;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.puntuacion-juego button:hover {
+    background: #229954;
+    transform: scale(1.05);
+}
+
+.instrucciones-juego {
+    flex: 1;
+    text-align: center;
+}
+
+#mensaje-juego {
+    font-size: 14px;
+    color: #2c3e50;
+    background: #ecf0f1;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #27ae60;
+}
+
+.zona-Juego {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.zona-Juego div {
+    background: white;
+    padding: 15px;
+    border-radius: 20px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.zona-Juego div:hover {
+    transform: scale(1.08);
+    background: white;
+}
+
+.zona-Juego img {
+    width: 140px;
+    max-width: 100%;
+}
+
+.puntuacion-juego {
+    text-align: center;
+}
+
+.puntuacion-juego h2 {
+    margin-bottom: 20px;
+    color: green;
+}
+
+/* CSS Footer */
+footer {
+    background: green;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Para el responsive */
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .zona-Juego {
+        gap: 15px;
+    }
+
+    .zona-Juego img {
+        width: 100px;
+    }
+}
