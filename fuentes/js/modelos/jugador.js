@@ -59,3 +59,4 @@ window.generarNuevoProductoAleatorio = function() {
 document.addEventListener("DOMContentLoaded", function() {
     window.generarNuevoProductoAleatorio();
 });
+

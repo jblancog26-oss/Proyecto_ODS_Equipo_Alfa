@@ -1,198 +1,193 @@
-// =================================
-// CONTROLADOR DE JUEGO
-// Gestiona: movimiento y colisiones
-// =================================
+// =========================
+// CONTROLADOR DEL JUEGO
+// =========================
 
 window.ControladorJuego = {
+
+    // Elementos del juego
     arenaJuego: null,
     productoMovil: null,
     botonReiniciarJuego: null,
-    contenedoresDelJuego: {},
 
-    posicionXDelProducto: 0,
-    posicionYDelProducto: 0,
-    velocidadDelProducto: 7,
-    colisionYaDetectada: false,
-    teclasPresionadas: {},
+    // Contenedores
+    contenedores: {},
 
-    inicializar: function() {
+    // Posición del producto
+    x: 0,
+    y: 0,
+
+    // Configuración
+    velocidad: 7,
+    colision: false,
+    teclas: {},
+
+    // =========================
+    // INICIAR JUEGO
+    // =========================
+    inicializar: function () {
         this.arenaJuego = document.getElementById("arena-juego");
         this.productoMovil = document.getElementById("producto-movil");
         this.botonReiniciarJuego = document.getElementById("reiniciar-juego");
-        
-        this.contenedoresDelJuego = {
+
+        this.contenedores = {
             azul: document.getElementById("azul"),
             marron: document.getElementById("marron"),
             verde: document.getElementById("verde"),
             amarillo: document.getElementById("amarillo")
         };
 
-        this.posicionXDelProducto = this.arenaJuego.offsetWidth / 2 - 40;
-        this.posicionYDelProducto = this.arenaJuego.offsetHeight / 2 - 40;
-        this.actualizarPosicionDelProductoEnPantalla();
-        
-        this.configurarEventosDeTeclasYRaton();
-        this.bucleDelJuego();
+        this.x = this.arenaJuego.offsetWidth / 2 - 40;
+        this.y = this.arenaJuego.offsetHeight / 2 - 40;
+
+        this.actualizarPosicion();
+        this.configurarEventos();
+        this.bucleJuego();
     },
 
-    actualizarPosicionDelProductoEnPantalla: function() {
-        this.posicionXDelProducto = Math.max(0, Math.min(this.posicionXDelProducto, this.arenaJuego.offsetWidth - this.productoMovil.offsetWidth));
-        this.posicionYDelProducto = Math.max(0, Math.min(this.posicionYDelProducto, this.arenaJuego.offsetHeight - this.productoMovil.offsetHeight));
-        this.productoMovil.style.left = this.posicionXDelProducto + "px";
-        this.productoMovil.style.top = this.posicionYDelProducto + "px";
+    // =========================
+    // ACTUALIZAR POSICIÓN
+    // =========================
+    actualizarPosicion: function () {
+        this.x = Math.max(0, Math.min(this.x, this.arenaJuego.offsetWidth - this.productoMovil.offsetWidth));
+        this.y = Math.max(0, Math.min(this.y, this.arenaJuego.offsetHeight - this.productoMovil.offsetHeight));
+
+        this.productoMovil.style.left = this.x + "px";
+        this.productoMovil.style.top = this.y + "px";
     },
 
-    obtenerLimitesDelElementoEnLaPantalla: function(elemento) {
-        const rectangulo = elemento.getBoundingClientRect();
-        const rectanguloArena = this.arenaJuego.getBoundingClientRect();
+    // =========================
+    // DETECTAR COLISIÓN
+    // =========================
+    hayColision: function (a, b) {
+        return !(a.right < b.left || a.left > b.right || a.bottom < b.top || a.top > b.bottom);
+    },
+
+    // =========================
+    // OBTENER LÍMITES
+    // =========================
+    obtenerLimites: function (elemento) {
+        const rect = elemento.getBoundingClientRect();
+        const arena = this.arenaJuego.getBoundingClientRect();
+
         return {
-            left: rectangulo.left - rectanguloArena.left,
-            top: rectangulo.top - rectanguloArena.top,
-            right: rectangulo.right - rectanguloArena.left,
-            bottom: rectangulo.bottom - rectanguloArena.top,
-            width: rectangulo.width,
-            height: rectangulo.height
+            left: rect.left - arena.left,
+            top: rect.top - arena.top,
+            right: rect.right - arena.left,
+            bottom: rect.bottom - arena.top
         };
     },
 
-    detectarChoqueEntreDosRectangulos: function(rectangulo1, rectangulo2) {
-        return !(rectangulo1.right < rectangulo2.left ||
-                 rectangulo1.left > rectangulo2.right ||
-                 rectangulo1.bottom < rectangulo2.top ||
-                 rectangulo1.top > rectangulo2.bottom);
-    },
+    // =========================
+    // COMPROBAR CHOQUES
+    // =========================
+    comprobarChoques: function () {
+        if (this.colision) return;
 
-    verificarChoquesDeTodosLosContenedores: function() {
-        if (this.colisionYaDetectada) {
-            return;
-        }
-
-        const limitesDelProducto = {
-            left: this.posicionXDelProducto,
-            top: this.posicionYDelProducto,
-            right: this.posicionXDelProducto + this.productoMovil.offsetWidth,
-            bottom: this.posicionYDelProducto + this.productoMovil.offsetHeight
+        const producto = {
+            left: this.x,
+            top: this.y,
+            right: this.x + this.productoMovil.offsetWidth,
+            bottom: this.y + this.productoMovil.offsetHeight
         };
 
-        for (const [nombreContenedor, elementoContenedor] of Object.entries(this.contenedoresDelJuego)) {
-            const limitesDelContenedor = this.obtenerLimitesDelElementoEnLaPantalla(elementoContenedor);
+        for (const [nombre, contenedor] of Object.entries(this.contenedores)) {
+            const caja = this.obtenerLimites(contenedor);
 
-            if (this.detectarChoqueEntreDosRectangulos(limitesDelProducto, limitesDelContenedor)) {
-                this.colisionYaDetectada = true;
-                elementoContenedor.classList.add("colision");
+            if (this.hayColision(producto, caja)) {
+                this.colision = true;
+                contenedor.classList.add("colision");
 
-                if (nombreContenedor === window.productoActual.contenedor) {
+                if (nombre === window.productoActual.contenedor) {
                     window.ControladorResultados.incrementarPuntuacionEnUno();
-                    window.ControladorResultados.mostrarMensajeCorrecto(window.productoActual.nombre, nombreContenedor);
+                    window.ControladorResultados.mostrarMensajeCorrecto(window.productoActual.nombre, nombre);
                 } else {
                     window.ControladorResultados.mostrarMensajeErrorContenedor(window.productoActual.nombre, window.productoActual.contenedor);
                 }
 
                 setTimeout(() => {
-                    elementoContenedor.classList.remove("colision");
-                    this.colisionYaDetectada = false;
+                    contenedor.classList.remove("colision");
+                    this.colision = false;
                     window.generarNuevoProductoAleatorio();
-                    this.posicionXDelProducto = this.arenaJuego.offsetWidth / 2 - 40;
-                    this.posicionYDelProducto = this.arenaJuego.offsetHeight / 2 - 40;
-                    this.actualizarPosicionDelProductoEnPantalla();
+                    this.x = this.arenaJuego.offsetWidth / 2 - 40;
+                    this.y = this.arenaJuego.offsetHeight / 2 - 40;
+                    this.actualizarPosicion();
                     window.ControladorResultados.mostrarMensajeNuevoProductoGenerado();
                 }, 1000);
+
                 return;
             }
         }
     },
 
-    bucleDelJuegoActualizandoMovimiento: function() {
-        if (this.teclasPresionadas["w"] || this.teclasPresionadas["W"] || this.teclasPresionadas["ArrowUp"]) {
-            this.posicionYDelProducto -= this.velocidadDelProducto;
+    // =========================
+    // MOVIMIENTO
+    // =========================
+    actualizarMovimiento: function () {
+        if (this.teclas["w"] || this.teclas["ArrowUp"]) {
+            this.y -= this.velocidad;
         }
-        if (this.teclasPresionadas["s"] || this.teclasPresionadas["S"] || this.teclasPresionadas["ArrowDown"]) {
-            this.posicionYDelProducto += this.velocidadDelProducto;
+        if (this.teclas["s"] || this.teclas["ArrowDown"]) {
+            this.y += this.velocidad;
         }
-        if (this.teclasPresionadas["a"] || this.teclasPresionadas["A"] || this.teclasPresionadas["ArrowLeft"]) {
-            this.posicionXDelProducto -= this.velocidadDelProducto;
+        if (this.teclas["a"] || this.teclas["ArrowLeft"]) {
+            this.x -= this.velocidad;
         }
-        if (this.teclasPresionadas["d"] || this.teclasPresionadas["D"] || this.teclasPresionadas["ArrowRight"]) {
-            this.posicionXDelProducto += this.velocidadDelProducto;
+        if (this.teclas["d"] || this.teclas["ArrowRight"]) {
+            this.x += this.velocidad;
         }
 
-        this.actualizarPosicionDelProductoEnPantalla();
-        this.verificarChoquesDeTodosLosContenedores();
-        requestAnimationFrame(() => this.bucleDelJuegoActualizandoMovimiento());
+        this.actualizarPosicion();
+        this.comprobarChoques();
+
+        requestAnimationFrame(() => {
+            this.actualizarMovimiento();
+        });
     },
 
-    configurarEventosDeTeclasYRaton: function() {
-        // Evento de tecla presionada
-        document.addEventListener("keydown", (evento) => {
-            const juegoEstaActivo = document.getElementById("juego").classList.contains("activo");
-            if (!juegoEstaActivo) {
-                return;
-            }
-            
-            const teclaPresionada = evento.key.toLowerCase();
-            if (["w", "a", "s", "d", "arrowup", "arrowdown", "arrowleft", "arrowright"].includes(teclaPresionada)) {
-                this.teclasPresionadas[evento.key] = true;
-                evento.preventDefault();
+    // =========================
+    // EVENTOS
+    // =========================
+    configurarEventos: function () {
+        document.addEventListener("keydown", (e) => {
+            const tecla = e.key;
+            if (["w", "a", "s", "d", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(tecla)) {
+                this.teclas[tecla] = true;
+                e.preventDefault();
             }
         });
 
-        // Evento de tecla soltada
-        document.addEventListener("keyup", (evento) => {
-            this.teclasPresionadas[evento.key] = false;
+        document.addEventListener("keyup", (e) => {
+            this.teclas[e.key] = false;
         });
 
-        // Evento de ratón arrastrado
-        this.productoMovil.addEventListener("mousedown", (evento) => {
-            const juegoEstaActivo = document.getElementById("juego").classList.contains("activo");
-            if (!juegoEstaActivo || this.colisionYaDetectada) {
-                return;
-            }
-            
-            evento.preventDefault();
-            const rectanguloArena = this.arenaJuego.getBoundingClientRect();
-            let estaArrastrandoConRaton = true;
-
-            const alMoverRaton = (eventoMovimiento) => {
-                if (!estaArrastrandoConRaton) return;
-                
-                this.posicionXDelProducto = eventoMovimiento.clientX - rectanguloArena.left - this.productoMovil.offsetWidth / 2;
-                this.posicionYDelProducto = eventoMovimiento.clientY - rectanguloArena.top - this.productoMovil.offsetHeight / 2;
-                
-                this.actualizarPosicionDelProductoEnPantalla();
-                this.verificarChoquesDeTodosLosContenedores();
-            };
-
-            const alSoltarRaton = () => {
-                estaArrastrandoConRaton = false;
-                Object.keys(this.teclasPresionadas).forEach(tecla => delete this.teclasPresionadas[tecla]);
-                document.removeEventListener("mousemove", alMoverRaton);
-                document.removeEventListener("mouseup", alSoltarRaton);
-            };
-
-            document.addEventListener("mousemove", alMoverRaton);
-            document.addEventListener("mouseup", alSoltarRaton);
-        });
-
-        // Evento del botón reiniciar
         if (this.botonReiniciarJuego) {
             this.botonReiniciarJuego.addEventListener("click", () => {
-                this.reiniciarJuegoCompletamente();
+                this.reiniciarJuego();
             });
         }
     },
 
-    bucleDelJuego: function() {
-        this.bucleDelJuegoActualizandoMovimiento();
+    // =========================
+    // BUCLE PRINCIPAL
+    // =========================
+    bucleJuego: function () {
+        this.actualizarMovimiento();
     },
 
-    reiniciarJuegoCompletamente: function() {
+    // =========================
+    // REINICIAR JUEGO
+    // =========================
+    reiniciarJuego: function () {
         window.ControladorResultados.resetearPuntuacionACero();
-        this.colisionYaDetectada = false;
-        Object.values(this.contenedoresDelJuego).forEach(c => c.classList.remove("colision"));
+        this.colision = false;
+
+        Object.values(this.contenedores).forEach((c) => c.classList.remove("colision"));
         window.generarNuevoProductoAleatorio();
-        this.posicionXDelProducto = this.arenaJuego.offsetWidth / 2 - 40;
-        this.posicionYDelProducto = this.arenaJuego.offsetHeight / 2 - 40;
-        this.actualizarPosicionDelProductoEnPantalla();
+
+        this.x = this.arenaJuego.offsetWidth / 2 - 40;
+        this.y = this.arenaJuego.offsetHeight / 2 - 40;
+        this.actualizarPosicion();
+
         window.ControladorResultados.mostrarMensajeDeReinicio();
     }
 };
