@@ -7,7 +7,7 @@ window.ControladorJuego = {
     // Elementos del juego
     arenaJuego: null,
     productoMovil: null,
-    botonReiniciarJuego: null,
+    botonEmpezarPartida: null,
 
     // Contenedores
     contenedores: {},
@@ -20,6 +20,7 @@ window.ControladorJuego = {
     velocidad: 7,
     colision: false,
     teclas: {},
+    partidaActiva: false,
 
     // =========================
     // INICIAR JUEGO
@@ -27,7 +28,7 @@ window.ControladorJuego = {
     inicializar: function () {
         this.arenaJuego = document.getElementById("arena-juego");
         this.productoMovil = document.getElementById("producto-movil");
-        this.botonReiniciarJuego = document.getElementById("reiniciar-juego");
+        this.botonEmpezarPartida = document.getElementById("empezar-partida");
 
         this.contenedores = {
             azul: document.getElementById("azul"),
@@ -81,7 +82,8 @@ window.ControladorJuego = {
     // COMPROBAR CHOQUES
     // =========================
     comprobarChoques: function () {
-        if (this.colision) return;
+        // Solo procesar colisiones si una partida está activa
+        if (!this.partidaActiva || this.colision) return;
 
         const producto = {
             left: this.x,
@@ -123,6 +125,14 @@ window.ControladorJuego = {
     // MOVIMIENTO
     // =========================
     actualizarMovimiento: function () {
+        // Bloquear movimiento si la partida no está activa
+        if (!this.partidaActiva) {
+            requestAnimationFrame(() => {
+                this.actualizarMovimiento();
+            });
+            return;
+        }
+
         if (this.teclas["w"] || this.teclas["ArrowUp"]) {
             this.y -= this.velocidad;
         }
@@ -160,9 +170,9 @@ window.ControladorJuego = {
             this.teclas[e.key] = false;
         });
 
-        if (this.botonReiniciarJuego) {
-            this.botonReiniciarJuego.addEventListener("click", () => {
-                this.reiniciarJuego();
+        if (this.botonEmpezarPartida) {
+            this.botonEmpezarPartida.addEventListener("click", () => {
+                this.empezarPartida();
             });
         }
     },
@@ -177,7 +187,8 @@ window.ControladorJuego = {
     // =========================
     // REINICIAR JUEGO
     // =========================
-    reiniciarJuego: function () {
+    empezarPartida: function () {
+        this.partidaActiva = true;
         window.ControladorResultados.resetearPuntuacionACero();
         this.colision = false;
 
@@ -188,6 +199,13 @@ window.ControladorJuego = {
         this.y = this.arenaJuego.offsetHeight / 2 - 40;
         this.actualizarPosicion();
 
-        window.ControladorResultados.mostrarMensajeDeReinicio();
+        window.ControladorResultados.mostrarMensajeDeInicio();
+    },
+
+    terminarPartida: function () {
+        this.partidaActiva = false;
+        this.colision = false;
+
+        Object.values(this.contenedores).forEach((c) => c.classList.remove("colision"));
     }
 };
