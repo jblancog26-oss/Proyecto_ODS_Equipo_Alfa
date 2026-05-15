@@ -16,11 +16,11 @@
 | Tarea | Descripción | Trabajador | Estado |
 |-------|-------------|------------|--------|
 | TT7 | Arreglar el CRUD / Arreglar el Backlog | JAVI | ✅ |
-| TT8 | Crear un CSS para la Página (No Juego) | FELIPE | 🔄 |
-| TT9 | Organizar/Seleccionar Imágenes | - | ⭕ |
+| TT8 | Crear un CSS para la Página (No Juego) | FELIPE | ✅ |
+| TT9 | Organizar/Seleccionar Imágenes | fELIPE | ✅ |
 | TT10 | Crear Campo de Juego | JAVI | 🔄 |
 | TT11 | Crear Colisiones | - | ⭕ |
-| TT12 | Insertar Imágenes en el Juego | - | ⭕ |
+| TT12 | Insertar Imágenes en el Juego | FELIPE | ✅ |
 | TT13 | Primeras Interacciones | - | ⭕ |
 | TT14 | CSS (Juego) | - | ⭕ |
 | TT15 | Jugadores | - | ⭕ |
