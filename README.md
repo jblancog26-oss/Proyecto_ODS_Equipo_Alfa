@@ -36,7 +36,7 @@ Para ver el backlog completo con las tareas técnicas, consulta el archivo [fuen
 | TT3 | Creación de CRUD | SERGIO | ✅ |
 | TT4 | Acciones/Eventos | JAVIER | ✅ |
 | TT5 | Vistas | FELIPE | ✅ |
-| TT6 | Manual de Usuario | - | ⭕ |
+| TT6 | Manual de Usuario | JAVI | ✅ |
 
 ## Juego
 
@@ -49,10 +49,10 @@ Para ver el backlog completo con las tareas técnicas, consulta el archivo [fuen
 | TT11 | Crear Colisiones | Javi | ✅ |
 | TT12 | Insertar Imágenes en el Juego | FELIPE | ✅ |
 | TT13 | Primeras Interacciones | - | ✅ |
-| TT14 | CSS (Juego) | FELIPE| 🔄  |
-| TT15 | Jugadores |  | 🔄 |
+| TT14 | CSS (Juego) | FELIPE| ✅  |
+| TT15 | Jugadores |  | ✅ |
 | TT16 | Puntuaciones | Javi | ✅ |
-| TT17 | Registro de Puntuación | - | 🔄 |
+| TT17 | Registro de Puntuación | - | ✅ |
 
 
 ## Situación Gráfica del Proyecto
