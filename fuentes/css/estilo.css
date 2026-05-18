@@ -177,6 +177,43 @@ button:hover {
     background: white;
     transform: translateX(4px);
 }
+/*css registros de partidas*/
+#lista-partidas{
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px 0 20px 20px; /* izquierda */
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    list-style-position: inside;
+    font-family: Arial, sans-serif;
+}
+
+#lista-partidas li{
+    background: #f4f4f4;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+#lista-partidas li:hover{
+    background: #e0e0e0;
+    transform: scale(1.02);
+}
+
+.mejor-racha{
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 20px 0 20px 20px; /* izquierda */
+    width: 300px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
 
 /* Tachado */
 .tachado {
@@ -248,8 +285,6 @@ button:hover {
     margin-top: 2px;
     color: #2c3e50;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     max-width: 100%;
 }
 

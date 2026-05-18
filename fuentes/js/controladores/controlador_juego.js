@@ -159,6 +159,17 @@ window.ControladorJuego = {
     // =========================
     configurarEventos: function () {
         document.addEventListener("keydown", (e) => {
+            // hacemos esta comprobación para evitar que al escribir
+            // en el formulario nos detecte que hemos pulsado esas teclas 
+            const elementoActivo = document.activeElement;
+            if (
+                elementoActivo.tagName === "INPUT" ||
+                elementoActivo.tagName === "TEXTAREA" ||
+                elementoActivo.tagName === "SELECT"
+            ){
+                return;
+            }
+                        
             const tecla = e.key;
             if (["w", "a", "s", "d", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(tecla)) {
                 this.teclas[tecla] = true;
