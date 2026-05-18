@@ -133,16 +133,16 @@ window.ControladorJuego = {
             return;
         }
 
-        if (this.teclas["w"] || this.teclas["ArrowUp"]) {
+        if (this.teclas["w"] || this.teclas["ArrowUp"] || this.teclas["W"]) {
             this.y -= this.velocidad;
         }
-        if (this.teclas["s"] || this.teclas["ArrowDown"]) {
+        if (this.teclas["s"] || this.teclas["ArrowDown"] || this.teclas["S"]) {
             this.y += this.velocidad;
         }
-        if (this.teclas["a"] || this.teclas["ArrowLeft"]) {
+        if (this.teclas["a"] || this.teclas["ArrowLeft"] || this.teclas["A"]) {
             this.x -= this.velocidad;
         }
-        if (this.teclas["d"] || this.teclas["ArrowRight"]) {
+        if (this.teclas["d"] || this.teclas["ArrowRight"] || this.teclas["D"]) {
             this.x += this.velocidad;
         }
 
